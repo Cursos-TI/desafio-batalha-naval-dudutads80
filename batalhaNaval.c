@@ -1,14 +1,73 @@
 #include <stdio.h>
-
 // Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+
+
+#define TAMANHO 10
+#define TAMANHO_NAVIO 3
+#define NAVIO 3
+#define AGUA 0
+
 
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+
+    int tabuleiro[10][10] = {0};
+
+    // coordenadas dos navios ( linha coluna)
+    int linha_h = 2, coluna_h = 4;  // navio horizontal
+    int linha_v = 5, coluna_v= 7;  // navio vertical
+
+    // verificacao de limite navio horizontal
+    if (coluna_h + TAMANHO_NAVIO > TAMANHO){
+        printf ("erro navio fora limite tabuleiro. \n");
+        return 1;
+    }
+ 
+    // verificacao de limite navio vertical
+    if (linha_v + TAMANHO_NAVIO > TAMANHO){
+        printf ("erro navio fora limite tabuleiro. \n");
+        return 1;
+
+    }    
+    for (int i = 0; i <TAMANHO_NAVIO; i++) { 
+if (tabuleiro[linha_h][coluna_h + i] == NAVIO || tabuleiro[linha_v + i][coluna_v] == NAVIO)
+
+     for (int i = 0; i <TAMANHO_NAVIO; i++) {
+        tabuleiro[linha_h][coluna_h + i] = NAVIO;
+    }
+    for (int i=0; i <TAMANHO_NAVIO; i++) {
+       tabuleiro[linha_v + i][coluna_v] = NAVIO;
+    }
+
+
+      printf("Tabuleiro Batalha Naval:\n\n");
+      for(int i = 0; i <TAMANHO; i++){
+        for(int j = 0; j <TAMANHO; j++){
+            printf("%d ", tabuleiro[i][j]);
+
+        }
+        printf("\n");
+
+      }
+     return 0;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
@@ -36,5 +95,5 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    return 0;
-}
+    
+
